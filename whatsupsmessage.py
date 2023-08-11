@@ -1,2 +1,2 @@
-import pywhatkit as kit 
-kit.sendwhatmsg("+918690351518","hi hello ",22,39,10)
+import pywhatkit 
+pywhatkit.sendwhatmsg("+916367790103","hi hello ",14,10)
