@@ -2,4 +2,3 @@
 a=input("enter the binary num")
 b=input("enter the binary num2")
 carry =0
-for i in 

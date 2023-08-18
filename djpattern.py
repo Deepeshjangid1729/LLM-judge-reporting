@@ -12,10 +12,13 @@
 9 * * * * *  *  * * * *
 10
 
-
-
-
-
-
-
 '''
+for i in range(0,13):
+  for j in range(0,10):
+        if(j==0 or j==5 and (i!=5 or i!=9 )):
+          print("*",end=" ")
+        else:
+          print(end="  ")
+  print("\n")                  
+  
+  

@@ -7,5 +7,7 @@ while i<=12:
     auto.press("enter")
     time.sleep(0.2)
     i+=1  
+    
+    
 
     

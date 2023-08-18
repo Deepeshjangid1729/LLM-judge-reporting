@@ -7,3 +7,4 @@ for row in range(0,7):
             result_str=result_str+" "    
     result_str=result_str+"\n"    
 print(result_str);
+ 

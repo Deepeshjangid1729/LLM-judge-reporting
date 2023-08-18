@@ -1,4 +1,4 @@
-#array in python
+#array in python codefor win
 a=int(input("enter the value of A "))
 b=int(input("enter the value of B"))
 c=int(input("enter the value of C"))

@@ -6,4 +6,4 @@ for i in lst :
         odd_lst=lst[i]
 print(even_lst)
 print(odd_lst)            
-https://infyspringboard.onwingspan.com/web/en/page/lex_auth_01383691571838976042
+https://infyspringboard.onwingspan.com/web/en/page/lex_auth_01383691571838976042s
