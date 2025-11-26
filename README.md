@@ -83,8 +83,21 @@ m0, m1 = allocate_calibration_sample(m, p, q0_pilot=0.7, q1_pilot=0.9, m_pilot=1
 print("allocate m0,m1:", m0, m1)
 ```
 
-## Notebooks
-- Reproduce figures: `figure2.ipynb`, `figure3.ipynb`, `figure4.ipynb`
+## Figures
+- Reproduce figures or further experiments:
+  - Figure 2 (bias and adjustment) can be regenerated without the notebook:
+    ```bash
+    python -m run.figure2_bias_adjustment --output figures/figure2_bias_adjustment.png
+    ```
+  - Figure 3 (CI length vs. calibration size) without the notebook:
+    ```bash
+    python -m run.figure3_ci_length --output figures/figure3_ci_length.png
+    ```
+  - Figure 4 (Monte Carlo simulation) without the notebook:
+    ```bash
+    python -m run.figure4_monte_carlo --output figures/figure4_monte_carlo.png
+    ```
+- Notebooks remain available for exploratory runs: `figure2_bias and its adjustment.ipynb`, `figure3_confidence–interval length across calibration size.ipynb`, `figure4_Monte Carlo simulation.ipynb`
 
 ## Citation
 ```
