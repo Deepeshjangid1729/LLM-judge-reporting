@@ -12,9 +12,6 @@
         <sup>2</sup>University of Wisconsin–Madison &nbsp;·&nbsp;
         <sup>3</sup>KRAFTON
     </p>
-    <a href="./paper/How to Correctly Report LLM as a Judge Evaluations.pdf">
-        <img src="https://img.shields.io/badge/preprint-fa0f00.svg" alt="preprint">
-    </a>
     <a href="https://arxiv.org/abs/2511.21140">
     <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2511.21140-b31b1b.svg">
 </a>
@@ -26,7 +23,7 @@ Large language models (LLMs) are increasingly used as evaluators in lieu of huma
 
 ## Overview
 <p align="center">
-  <img src="./paper/figure.png" alt="figure">
+  <img src="./figure.png" alt="figure">
 </p>
 
 - Bias‑adjusted point estimate: `theta = (p + q0 - 1) / (q0 + q1 - 1)`
